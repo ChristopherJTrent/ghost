@@ -52,4 +52,7 @@ class StringTreeNode
         end
         !!current[:leaf]
     end
+    def valid_move?(character)
+        children[character] != nil
+    end
 end
