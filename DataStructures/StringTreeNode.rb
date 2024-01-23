@@ -53,6 +53,12 @@ class StringTreeNode
         !!current[:leaf]
     end
     def valid_move?(character)
-        children[character] != nil
+        children[character.to_sym] != nil
     end
+    def valid_moves
+        children.keys.reject{|v| v == :leaf}
+    end
+    def loser?
+        !!current[:leaf]
+    end 
 end

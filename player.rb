@@ -11,5 +11,7 @@ class Player
         puts "please input a letter."
         gets.chomp.downcase
     end
-
+    def lose
+        @losses += 1
+    end
 end

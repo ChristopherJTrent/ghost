@@ -19,4 +19,13 @@ class Game
     def switch_player!
         @current_player = @current_player == @player1 ? @player2 : @player1
     end
+    def take_turn
+        puts @pointer.valid_moves.join(', ').gsub(/:/, '')
+        move = @current_player.get_move
+        return false unless @pointer.valid_move?(move)
+        @pointer = @pointer[move.to_sym]
+        if @pointer.loser?
+            @current_player.lose
+        end
+    end
 end
